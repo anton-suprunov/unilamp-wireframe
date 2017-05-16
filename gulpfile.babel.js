@@ -97,14 +97,14 @@ gulp.task('scss:build', function scss() {
       .pipe(gulp.dest('dist'))
 });
 
-gulp.task('js-webpack', function js(done) {
+gulp.task('js-webpack', function jsWebpack(done) {
     webpack(webpackConfig, function(err, stats) {
         reload({ stream:true })
         done();
     });
 });
 
-gulp.task('js-rev', function() {
+gulp.task('js-rev', function jsRev() {
     return gulp.src(destinations.js + '/app.js')
       .pipe(gulpif(isProd, rev()))
       .pipe(gulp.dest(destinations.js))
@@ -115,8 +115,9 @@ gulp.task('js-rev', function() {
       .pipe(gulpif(isProd, gulp.dest('dist')));
 });
 
-gulp.task('js', gulp.series('js-webpack', 'js-rev', function() {
-    return del(destinations.js + '/app.js');
+gulp.task('js', gulp.series('js-webpack', 'js-rev', function js(done) {
+    isProd && del(destinations.js + '/app.js');
+    done();
 }));
 
 gulp.task('png-sprite', function pngSprite() {
@@ -143,7 +144,7 @@ gulp.task('png-sprite', function pngSprite() {
     return merge(imgStream, cssStream);
 });
 
-gulp.task('images', () => {
+gulp.task('images', function images() {
     return gulp.src(sources.img)
       .pipe(gulpif(isProd, imagemin({
           progressive: true,
