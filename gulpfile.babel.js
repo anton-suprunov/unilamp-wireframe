@@ -1,6 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
+import gutil from 'gulp-util';
+import gulpif from 'gulp-if';
 import clean from 'gulp-clean';
 import sass from 'gulp-sass';
 import { reload } from 'browser-sync';
@@ -23,6 +25,8 @@ import path from 'path';
 import rev from 'gulp-rev';
 import revReplace from 'gulp-rev-replace';
 import webpackConfig from './webpack.config';
+
+const isProd = gutil.env.production;
 
 const browserlist = ['last 2 versions', '> 1%', 'ie 9', 'Firefox ESR'];
 
@@ -74,15 +78,7 @@ gulp.task('scss', function scss() {
       }).on('error', sass.logError))
       .pipe(prefix(browserlist))
       .pipe(sourcemaps.write('sourcemaps'))
-      .pipe(rev())
       .pipe(gulp.dest(destinations.css))
-      .pipe(rev.manifest('dist/rev-manifest.json', {
-          base: 'dist',
-          merge: true
-      }))
-      .pipe(gulp.dest('dist'))
-
-        //.pipe(reload({ stream:true }));
       .pipe(browserSync.stream( {match: '**/*.css' } ));
 });
 
@@ -110,13 +106,13 @@ gulp.task('js-webpack', function js(done) {
 
 gulp.task('js-rev', function() {
     return gulp.src(destinations.js + '/app.js')
-      .pipe(rev())
+      .pipe(gulpif(isProd, rev()))
       .pipe(gulp.dest(destinations.js))
-      .pipe(rev.manifest('dist/rev-manifest.json', {
+      .pipe(gulpif(isProd, rev.manifest('dist/rev-manifest.json', {
           base: 'dist',
           merge: true
-      }))
-      .pipe(gulp.dest('dist'));
+      })))
+      .pipe(gulpif(isProd, gulp.dest('dist')));
 });
 
 gulp.task('js', gulp.series('js-webpack', 'js-rev', function() {
@@ -133,12 +129,12 @@ gulp.task('png-sprite', function pngSprite() {
       }));
 
     const imgStream = spriteData.img
-      .pipe(buffer())
-      .pipe(imagemin({
+      .pipe(gulpif(isProd, buffer()))
+      .pipe(gulpif(isProd, imagemin({
           progressive: true,
           svgoPlugins: [{removeViewBox: false}],
           use: [pngquant()]
-      }))
+      })))
       .pipe(gulp.dest(destinations.img));
 
     const cssStream = spriteData.css
@@ -149,15 +145,14 @@ gulp.task('png-sprite', function pngSprite() {
 
 gulp.task('images', () => {
     return gulp.src(sources.img)
-      .pipe(imagemin({
+      .pipe(gulpif(isProd, imagemin({
           progressive: true,
           svgoPlugins: [{removeViewBox: false}],
           use: [pngquant()]
-      }))
+      })))
       .pipe(gulp.dest(destinations.img))
       .pipe(reload({stream:true}));
 });
-
 
 /**
  * Task runs against root of the project to generate the _sprite.scss
@@ -253,13 +248,17 @@ gulp.task('eslint', function runEsLint() {
       .pipe(eslint.failAfterError());
 });
 
-gulp.task("revreplace", function(){
-    var manifest = gulp.src(dirs.dist + '/rev-manifest.json');
+gulp.task("revreplace", function(done){
+  if (!isProd) {
+    done();
+    return;
+  }
+  var manifest = gulp.src(dirs.dist + '/rev-manifest.json');
 
-    return gulp.src(dirs.dist + '/*.html')
-      .pipe(revReplace({manifest: manifest}))
-      .pipe(gulp.dest(dirs.dist))
-      .pipe(reload({ stream:true }));
+  return gulp.src(dirs.dist + '/*.html')
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest(dirs.dist))
+    .pipe(reload({ stream:true }));
 });
 
 gulp.task('deploy', function deploy() {
@@ -270,8 +269,8 @@ gulp.task('deploy', function deploy() {
 gulp.task('watch', function watch() {
     gulp.watch(sources.img, gulp.series('images'));
     gulp.watch(sources.sprite, gulp.series('png-sprite'));
-    gulp.watch(sources.scss, gulp.series('scss', 'revreplace'));
-    gulp.watch(sources.js, gulp.series('js', 'revreplace'));
+    gulp.watch(sources.scss, gulp.series('scss'));
+    gulp.watch(sources.js, gulp.series('js'));
     //gulp.watch(sources.html, gulp.series('html'));
     gulp.watch(sources.svg, gulp.series('svg-sprite'));
     gulp.watch(sources.fonts, gulp.series('fonts'));
@@ -285,7 +284,7 @@ gulp.task('build',
     gulp.parallel(
       'images',
       gulp.series(
-        'scss',
+        isProd ? 'scss:build' : 'scss',
         'js',
         'revreplace'
       ),
@@ -297,5 +296,3 @@ gulp.task('build',
   )
 );
 gulp.task('default', gulp.series('build', 'browser-sync', 'watch'));
-
-
