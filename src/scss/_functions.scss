@@ -1,0 +1,16 @@
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function pxToRem($px) {
+  $res: strip-units($px)/strip-units(map_get($root, 'fontSize'));
+  @return $res * 1rem;
+}
