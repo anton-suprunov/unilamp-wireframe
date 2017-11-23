@@ -1,3 +1,65 @@
 .footer {
-  
+  background-color: #cececf;
+}
+
+.footer-container {
+  padding: 0 0 0 140px;
+  display: flex;
+}
+
+.footer-menu {
+  padding: 40px 100px 0 0;
+}
+
+.footer-title {
+  margin: 0;
+  padding: 0 0 15px;
+  font-weight: 100;
+  font-size: 28px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list-li {}
+
+.footer-link {
+  text-decoration: none;
+  line-height: 50px;
+  color:#727374;
+  &.footer-link_bold {
+    font-weight: 700;
+  }
+}
+
+.newsletter {
+  padding: 40px 0 0;
+}
+
+.newsletter-input {
+  height: 40px;
+  width: 240px;
+  background-color: #fff;
+  font-size: 14px;
+  color:#231f20;
+  border: none;
+  font-weight: 100;
+  text-indent: 10px;
+}
+
+.newsletter-submit {
+  background-color: #dddedf;
+  color: #231f20;
+  height: 40px;
+  border: none;
+  width: 80px;
+}
+
+.newsletter-form {
+  display: flex;
+  width: 300px;
+  height: 60px;
 }

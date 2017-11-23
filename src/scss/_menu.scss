@@ -1,0 +1,178 @@
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color:rgba(255,255,255, 0.8);
+  z-index: 10;
+  padding: 30px;
+  transform: translate(-9999px, -9999px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  &.menu_active {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+.menu-close {
+  background-image: url(../img/close.png);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  position: absolute;
+  right: 30px;
+  top: 37px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.menu-btns {
+  overflow: hidden
+}
+
+.menu-btn {
+  margin-right: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 150px;
+  line-height: 60px;
+  color:#231f20;
+  display: block;
+  background-color: #eaebeb;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  
+  &:hover,
+  &.menu-btn_active {
+    background-color: #c1c1c1; 
+  }
+
+  &.menu-btn_align-right {
+    float: right;
+    margin-right: 80px;
+  }
+}
+
+.menu-nav {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.menu-nav-column {
+  &:last-child {
+    margin-right: 0;
+  }
+  &.menu-nav-column_1 {
+    width: 42.5%;
+  }
+  &.menu-nav-column_2 {
+    width: 22.5%;
+  }
+  &.menu-nav-column_3 {
+    width: 32.5%;
+  }
+}
+.menu-link {
+  display: block;
+  margin-bottom: 20px;
+  color:#231f20;
+  background-repeat: no-repeat;
+  position: relative;
+  font-weight: 100;
+  cursor: pointer;
+
+  &.menu-link_kitchen {
+    background-color: #eaebeb;
+    height: 400px;
+    background-image: url(../img/kitchen.png);
+    background-size: 150px auto;
+    background-position: 20% 50%;
+    font-size: 50px;
+    line-height: 400px;
+    text-align: center;
+    text-indent: 100px;
+  }
+
+  &.menu-link_outdoors {
+    background-color: #cececf;
+    height: 200px;
+    background-image: url(../img/outdoors.png);
+    background-size: 120px auto;
+    background-position: 20% 50%;
+    font-size: 50px;
+    line-height: 200px;
+    text-align: center;
+    text-indent: 100px;
+    font-weight: 100
+  }
+  &.menu-link_bathroom {
+    background-color: #cececf;
+    height: 200px;
+    background-image: url(../img/bathroom.png);
+    background-size: 130px auto;
+    background-position: 50% 50%;
+  }
+  
+  &.menu-link_other {
+    background-color: #eaebeb;
+    height: 400px;
+    background-image: url(../img/other-rooms.png);
+    background-size: 130px auto;
+    background-position: 50% 85%;
+    line-height: 50px;
+    font-size: 50px;  
+  }
+
+  &.menu-link_rotated {
+    span {
+      position: absolute;
+      transform: rotate(270deg);
+      //transform: translateX(-50%);
+      left: 25%;
+      font-weight: 100;
+      top: 20%;
+    }
+  }
+
+  &.menu-link_livingroom {
+    background-color: #cececf;
+    height: 300px;
+    width: 48%;
+    display: inline-block;
+    margin-right: 4%;
+    background-image: url(../img/livingroom.png);
+    background-size: 100px auto;
+    background-position: 50% 85%;
+    line-height: 40px;
+    font-size: 40px;
+  }
+  &.menu-link_bedroom {
+    background-color: #eaebeb;
+    height: 300px;
+    width: 48%;
+    display: inline-block;
+    background-image: url(../img/bedroom.png);
+    background-size: 100px auto;
+    background-position: 50% 85%;
+    line-height: 40px;
+    font-size: 40px;
+  }
+
+  &.menu-link_trade {
+    background-color: #eaebeb;
+    height: 300px;
+    background-image: url(../img/trade-housing.png);
+    background-size: 150px auto;
+    background-position: 20% 50%;
+    font-size: 30px;
+    text-align: center;
+    padding-left: 240px;
+    text-align: left;
+    padding-top: 24%;
+  }
+}

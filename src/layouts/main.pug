@@ -1,26 +1,49 @@
 doctype html
 head
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    title HOT YOGA 36 - Старейшая студия горячей йоги в центре Петербурга
-    meta(name="description" content="HOT YOGA 36 - Старейшая студия горячей йоги в центре Петербурга")
-    link(rel="stylesheet" href="css/styles.css")
-    link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet")
+  meta(charset="utf-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  title UNILAMP - Wireframe
+  meta(name="description" content="")
+  link(rel="stylesheet" href="css/styles.css")
+  //link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet")
 
-    link(rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png")
-    link(rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32")
-    link(rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16")
-    link(rel="manifest" href="/manifest.json")
-    link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
-    meta(name="theme-color" content="#ffffff")
+  link(rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png")
+  link(rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32")
+  link(rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16")
+  link(rel="manifest" href="/manifest.json")
+  link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
+  meta(name="theme-color" content="#ffffff")
 body
-    header(class="header")
-        div(class="container")
-         
-    block content
+  header(class="header")
+    a.logo(href="#")
+    a.menu-trigger.menu-open(href="#")
+        
+  nav.menu
+    a.menu-close(href="#")
+    .menu-btns
+      a.menu-btn.menu-btn_active(href="#") INSPIRATION
+      a.menu-btn(href="#") PRODUCTS
+      a.menu-btn(href="#") INFORMATION
+      a.menu-btn.menu-btn_align-right(href="#") CONTACT US
+    .menu-nav
+      .menu-nav-column.menu-nav-column_1
+        a.menu-link.menu-link_kitchen Kitchen
+        a.menu-link.menu-link_outdoors Outdoors
+      .menu-nav-column.menu-nav-column_2
+        a.menu-link.menu-link_bathroom
+        a.menu-link.menu-link_other.menu-link_rotated
+          span Other <br> rooms
+      .menu-nav-column.menu-nav-column_3
+        a.menu-link.menu-link_livingroom.menu-link_rotated 
+          span Living <br> room
+        a.menu-link.menu-link_bedroom.menu-link_rotated
+          span Bed <br> room
+        a.menu-link.menu-link_trade Trade <br> and housing 
 
-    footer(class="footer")
-        div(class="container")
+  block content
 
-	//script(src="js/vendor.js")
-    script(src="js/app.js")
+  footer(class="footer")
+    div(class="container")
+
+  //script(src="js/vendor.js")
+  script(src="js/app.js")

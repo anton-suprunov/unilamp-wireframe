@@ -1,3 +1,119 @@
 extends layouts/main.pug
 
 block content
+  section.slider
+
+    ul.slider-list
+      li.slider-slide
+
+    a.slider-arrow.slider-arrow_right(href="#")
+    a.slider-arrow.slider-arrow_left(href="#")
+
+  h3.subtitle To provide the best quality commercial lighting products <br> using the latest technology from a company that values <br> the environment, its brand name and products and most <br> importantly, values you, the customer.
+
+  section.pane.pane-products
+    .pane-block.pane-block_dark.pane-block_empty(style="width: 38%")
+    .pane-block.pane-block_white.pane-block-link(style="width: 26%")
+      h5.pane-block-title 
+        span FEATURED <br>PRODUCTS
+      a.pane-bottom-link(href="#") SEE ALL PRODUCTS >
+    .pane-block.pane-block_light.pane-block_empty(style="width: 18%")
+    .pane-block.pane-block_dark.pane-block_empty(style="width: 18%")
+
+  h5.section-title Inspirational Applications
+  section.pane.pane-applications
+    .pane-block.pane-block_dark.pane-block_empty.pane-block_has-footer(style="width: 33%")
+      span.pane-block-footer-text KITCHEN
+    .pane-block.pane-block_light.pane-block_empty.pane-block_has-footer(style="width: 33%")
+      span.pane-block-footer-text BATHROOM
+    .pane-block.pane-block_dark.pane-block_empty.pane-block_has-footer(style="width: 33%")
+      span.pane-block-footer-text LIVINGROOM &amp; BEDROOM
+  a.section-footer-link SEE ALL PRODUCTS
+
+  h5.section-title Latest News from UniLamp
+  section.news
+    .news-block
+      span.news-block-title Produkter som kan overdekkles av isolasjonsmatter
+    nav.news-list
+      .news-list-block
+        .news-list-text 
+          span Ny slitesterk <br> overflatebehandling <br> fra Unilamp
+        .news-list-img.news-list-img_darker
+      
+      .news-list-block
+        .news-list-img.news-list-img_lighter
+        .news-list-text 
+          span Noen sover bedre <br> med 7-års <br> syzztemgaranti
+      
+      .news-list-block
+        .news-list-text 
+          span Eco LED: Altmulig-<br> lampen <br> med alle-<br>-mulige-fordeler
+        .news-list-img.news-list-img_darker
+      
+      .news-list-block
+        .news-list-img.news-list-img_lighter
+        .news-list-text 
+          span WarmDim blir <br> den nye lystrenden
+  
+  section.catalog
+    .catalog-img
+    .catalog-meta
+      div
+        h5.catalog-title Catalog 2017
+        .catalog-text 
+          | Unilamp Norden AS har i løpet av kort tid etablert seg og tatt en
+          br
+          | plass i det profesjonelle elektro - og belysningsmarkedet. Med
+          br
+          | moderne teknologi ognye tekniske løsninger vinner selskapet
+          br
+          | stadig flere tilhengere.
+        a.catalog-link(href="#") SEE IT ONLINE
+  
+  footer.footer
+    .footer-container
+      .nav.footer-menu 
+        h6.footer-title Quick Menu
+        ul.footer-list
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") PRODUCTS
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") GET INSPIRED
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") ABOUT US
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") NEWS
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") INFORMATION
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") CONTACT US
+
+      .nav.footer-menu
+        h6.footer-title Products
+        ul.footer-list.footer-list
+          li.footer-list-li
+            a.footer-link(href="#") LYSLIST AND SPOTSKINNE
+          li.footer-list-li
+            a.footer-link(href="#") HEADLIGHT, HEADLIGHTS, <br> SPOT AND UPLIGHT
+          li.footer-list-li
+            a.footer-link(href="#") DOWNLIGHT
+          li.footer-list-li
+            a.footer-link(href="#") CEILING AND WALL FITTING
+          li.footer-list-li
+            a.footer-link(href="#") CONTROL AND BALLAST
+          li.footer-list-li
+            a.footer-link(href="#") SPOTLIGHTS
+
+      .nav.footer-menu
+        h6.footer-title &nbsp;
+        ul.footer-list.footer-list
+          li.footer-list-li
+            a.footer-link(href="#") ORIENTERINGSBELYSNING
+          li.footer-list-li
+            a.footer-link(href="#") LIGHT SOURCES
+    
+      .newsletter
+        h6.footer-title Newsletter
+        form.newsletter-form
+          input.newsletter-input(type="text" placeholder="Type your email..." name="email")
+          button.newsletter-submit +ADD
