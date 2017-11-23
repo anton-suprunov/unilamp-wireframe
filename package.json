@@ -18,7 +18,8 @@
     "jquery": "^3.2.1",
     "normalize.css": "^6.0.0",
     "responsive-nav": "^1.0.39",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "swiper": "^4.0.6"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

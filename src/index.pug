@@ -1,10 +1,11 @@
 extends layouts/main.pug
 
 block content
-  section.slider
+  section.slider.swiper-container
 
-    ul.slider-list
-      li.slider-slide
+    ul.slider-list.swiper-wrapper
+      li.slider-slide.swiper-slide
+      li.slider-slide.swiper-slide
 
     a.slider-arrow.slider-arrow_right(href="#")
     a.slider-arrow.slider-arrow_left(href="#")

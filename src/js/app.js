@@ -1,7 +1,10 @@
 import $ from 'jquery';
+//import Swiper from 'swiper/dist/js/swiper.js`;
+import Swiper from 'swiper';
 
 const onDomReady = () => {
   setDynamicElementsHeights();
+  initSlider();
 };
 
 const setDynamicElementsHeights = () => {
@@ -13,6 +16,16 @@ const setDynamicElementsHeights = () => {
   });
   $('.menu-close').on('click', (e) => {
     $('.menu').removeClass('menu_active');
+  });
+};
+
+const initSlider = () => {
+  new Swiper('.swiper-container', {
+    loop: true,
+    navigation: {
+      nextEl: '.slider-arrow_right',
+      prevEl: '.slider-arrow_left',
+    },
   });
 };
 

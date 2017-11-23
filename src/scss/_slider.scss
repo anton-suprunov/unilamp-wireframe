@@ -1,17 +1,21 @@
 .slider {
-  background-image: url(../img/top-slider.png);
-  background-size: 100% auto;
-  //background-position: 50% 50%;
-  min-height: 100vh;
-  background-repeat: no-repeat;
+  height: 100vh;
   position: relative;
+  width: 100%;
 }
 
 .slider-list {
-  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.slider-slide {}
+.slider-slide {
+  background-image: url(../img/top-slider.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  //background-position: 50% 50%;
+}
 
 .slider-arrow {
   position: absolute;
@@ -21,6 +25,7 @@
   width: 75px;
   height: 75px;
   bottom: 0;
+  z-index: 9;
 
   &.slider-arrow_right {
     right: 0;
