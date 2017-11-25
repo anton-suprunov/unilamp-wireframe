@@ -13,9 +13,11 @@ const setDynamicElementsHeights = () => {
 
   $('.menu-open').on('click', (e) => {
     $('.menu').addClass('menu_active');
+    e.preventDefault();
   });
   $('.menu-close').on('click', (e) => {
     $('.menu').removeClass('menu_active');
+    e.preventDefault();
   });
 };
 

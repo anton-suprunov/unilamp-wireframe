@@ -96,9 +96,11 @@ var setDynamicElementsHeights = function setDynamicElementsHeights() {
 
   (0, _jquery2.default)('.menu-open').on('click', function (e) {
     (0, _jquery2.default)('.menu').addClass('menu_active');
+    e.preventDefault();
   });
   (0, _jquery2.default)('.menu-close').on('click', function (e) {
     (0, _jquery2.default)('.menu').removeClass('menu_active');
+    e.preventDefault();
   });
 };
 

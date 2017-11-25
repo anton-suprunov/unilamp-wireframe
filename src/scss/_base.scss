@@ -25,6 +25,33 @@ body {
   //height: 100%;
 }
 
+.subtitle {
+  height: 350px;
+  text-align: center;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 100;
+  margin: 0;
+  line-height: 50px;
+  padding: 70px 0 0;
+  font-size: 34px;
+  background-image: url(../img/subtitle-bg.png);
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+.floating-list-btn {
+  background-image: url(../img/slider-btn.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  right: 75px;
+  bottom: 75px;
+  z-index: 10
+}
+
 .section-title {
   height: 200px;
   text-align: center;
