@@ -1,0 +1,31 @@
+.btn { 
+  margin-right: 20px;
+  font-weight: 600;
+  height: 60px;
+  min-width: 150px;
+  white-space: nowrap;
+  line-height: 60px;
+  color:#231f20;
+  display: inline-block;
+  background-color: $color-bg-light;
+  //float: left;
+  text-decoration: none;
+  text-align: center;
+  padding: 0 15px;
+  position: relative;
+  
+  &.btn_dark { background-color: $color-bg-dark; }
+  &.btn_fav {
+    padding-right: 80px;
+    &:after {
+      content: "";
+      background-image: url(../img/slider-btn.png);
+      background-size: 100% auto;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      position: absolute;
+    }
+  }
+}

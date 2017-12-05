@@ -34,21 +34,11 @@
 }
 
 .menu-btn {
-  margin-right: 20px;
-  font-weight: 600;
-  height: 60px;
-  width: 150px;
-  line-height: 60px;
-  color:#231f20;
-  display: block;
-  background-color: #eaebeb;
   float: left;
-  text-decoration: none;
-  text-align: center;
   
   &:hover,
   &.menu-btn_active {
-    background-color: #c1c1c1; 
+    background-color: $color-bg-dark;
   }
 
   &.menu-btn_align-right {
@@ -87,7 +77,7 @@
   cursor: pointer;
 
   &.menu-link_kitchen {
-    background-color: #eaebeb;
+    background-color: $color-bg-light;
     height: 400px;
     background-image: url(../img/kitchen.png);
     background-size: 150px auto;
@@ -119,7 +109,7 @@
   }
   
   &.menu-link_other {
-    background-color: #eaebeb;
+    background-color: $color-bg-light;
     height: 400px;
     background-image: url(../img/other-rooms.png);
     background-size: 130px auto;
@@ -152,7 +142,7 @@
     font-size: 40px;
   }
   &.menu-link_bedroom {
-    background-color: #eaebeb;
+    background-color: $color-bg-light;
     height: 300px;
     width: 48%;
     display: inline-block;
@@ -164,7 +154,7 @@
   }
 
   &.menu-link_trade {
-    background-color: #eaebeb;
+    background-color: $color-bg-light;
     height: 300px;
     background-image: url(../img/trade-housing.png);
     background-size: 150px auto;

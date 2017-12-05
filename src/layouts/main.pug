@@ -21,10 +21,10 @@ body
   nav.menu
     a.menu-close(href="#")
     .menu-btns
-      a.menu-btn.menu-btn_active(href="#") INSPIRATION
-      a.menu-btn(href="#") PRODUCTS
-      a.menu-btn(href="#") INFORMATION
-      a.menu-btn.menu-btn_align-right(href="#") CONTACT US
+      a.btn.menu-btn.menu-btn_active(href="#") INSPIRATION
+      a.btn.menu-btn(href="#") PRODUCTS
+      a.btn.menu-btn(href="#") INFORMATION
+      a.btn.menu-btn.menu-btn_align-right(href="#") CONTACT US
     .menu-nav
       .menu-nav-column.menu-nav-column_1
         a.menu-link.menu-link_kitchen Kitchen
@@ -40,10 +40,56 @@ body
           span Bed <br> room
         a.menu-link.menu-link_trade Trade <br> and housing 
 
-  block content
+  .pages-wrap
+    block content
 
-  footer(class="footer")
-    div(class="container")
+  footer.footer
+    .footer-container
+      .nav.footer-menu 
+        h6.footer-title Quick Menu
+        ul.footer-list
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") PRODUCTS
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") GET INSPIRED
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") ABOUT US
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") NEWS
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") INFORMATION
+          li.footer-list-li
+            a.footer-link.footer-link_bold(href="#") CONTACT US
+
+      .nav.footer-menu
+        h6.footer-title Products
+        ul.footer-list.footer-list
+          li.footer-list-li
+            a.footer-link(href="#") LYSLIST AND SPOTSKINNE
+          li.footer-list-li
+            a.footer-link(href="#") HEADLIGHT, HEADLIGHTS, <br> SPOT AND UPLIGHT
+          li.footer-list-li
+            a.footer-link(href="#") DOWNLIGHT
+          li.footer-list-li
+            a.footer-link(href="#") CEILING AND WALL FITTING
+          li.footer-list-li
+            a.footer-link(href="#") CONTROL AND BALLAST
+          li.footer-list-li
+            a.footer-link(href="#") SPOTLIGHTS
+
+      .nav.footer-menu
+        h6.footer-title &nbsp;
+        ul.footer-list.footer-list
+          li.footer-list-li
+            a.footer-link(href="#") ORIENTERINGSBELYSNING
+          li.footer-list-li
+            a.footer-link(href="#") LIGHT SOURCES
+    
+      .newsletter
+        h6.footer-title Newsletter
+        form.newsletter-form
+          input.newsletter-input(type="text" placeholder="Type your email..." name="email")
+          button.newsletter-submit +ADD
 
   //script(src="js/vendor.js")
   script(src="js/app.js")

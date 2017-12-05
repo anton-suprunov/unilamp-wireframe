@@ -1,17 +1,24 @@
 @import "normalize.css/normalize";
 @import "swiper/dist/css/swiper.min";
 
+$use-slide: true;
+$use-fade: true;
+@import "animate-sass/animate";
+
 
 @import "vars";
 @import "mixins";
 @import "fonts";
 @import "base";
+@import "buttons";
 //@import "sprite";
 
+@import "page";
 @import "header";
 @import "menu";
 @import "slider";
 @import "pane";
 @import "news";
 @import "catalog";
+@import "product";
 @import "footer";

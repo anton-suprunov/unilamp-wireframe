@@ -86,6 +86,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var onDomReady = function onDomReady() {
   setDynamicElementsHeights();
   initSlider();
+  initPages();
 };
 //import Swiper from 'swiper/dist/js/swiper.js`;
 
@@ -105,13 +106,57 @@ var setDynamicElementsHeights = function setDynamicElementsHeights() {
 };
 
 var initSlider = function initSlider() {
-  new _swiper2.default('.swiper-container', {
+  new _swiper2.default('.slider', {
     loop: true,
     navigation: {
       nextEl: '.slider-arrow_right',
       prevEl: '.slider-arrow_left'
     }
   });
+
+  new _swiper2.default('.products-slider', {
+    loop: true,
+    navigation: {
+      nextEl: '.product-arrow_right',
+      prevEl: '.product-arrow_left'
+    }
+  });
+};
+
+var initPages = function initPages() {
+  (0, _jquery2.default)('.product-link').on('click', function (e) {
+    e.preventDefault();
+    switchPage('product');
+  });
+  (0, _jquery2.default)('.product-back').on('click', function (e) {
+    e.preventDefault();
+    switchPage('index');
+  });
+};
+
+var switchPage = function switchPage(toPage, backwards) {
+  var toPageEl = (0, _jquery2.default)('.page[data-page-id="' + toPage + '"]');
+  var activePage = (0, _jquery2.default)('.page.page_active');
+
+  if (!toPageEl.length) {
+    return false;
+  }
+  scrollToTop();
+  setTimeout(function () {
+    toPageEl.addClass('page_enter');
+    activePage.addClass('page_exit');
+
+    setTimeout(function () {
+      toPageEl.removeClass('page_enter').addClass('page_active');
+
+      activePage.removeClass('page_exit page_active');
+    }, 500);
+  }, 300);
+};
+
+var scrollToTop = function scrollToTop() {
+  var body = (0, _jquery2.default)("html, body");
+  body.stop().animate({ scrollTop: 0 }, 300);
 };
 
 (0, _jquery2.default)(onDomReady);

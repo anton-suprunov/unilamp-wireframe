@@ -8,13 +8,10 @@
   position: relative;
   
   &.pane-block_empty {
-    background-image: url(../img/pic.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 50px auto;
+    @include placeholder;
   }
   &.pane-block_dark {
-    background-color:#c1c1c1;
+    background-color:$color-bg-dark;
   }
   &.pane-block_light {
     background-color: #dddedf

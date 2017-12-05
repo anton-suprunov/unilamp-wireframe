@@ -1,0 +1,49 @@
+.pages-wrap {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  //border-top: 5px solid #ccc;
+}
+
+.page {
+  background-color: #fff;
+  transform: translate3d(-100%, 0, 0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  
+  &.page_active {
+    position: relative;
+    transform: translate(0, 0);
+    max-height: none;
+  }
+
+  &.page_index {
+    &.page_enter {
+      transform: translate3d(0, 0, 0);
+      animation-duration: 0.6s;
+      overflow: hidden;
+      height: 100vh;
+      @extend .animated, .fadeIn;
+    }
+
+    &.page_exit {
+      animation-duration: 0.6s;
+      @extend .animated, .fadeOut;
+    }
+  }
+
+  &.page_product {
+    &.page_enter {
+      animation-duration: 0.5s;
+      @extend .animated, .slideInRight;
+    }
+
+    &.page_exit {
+      animation-duration: 0.5s;
+      @extend .animated, .slideOutRight;
+    }
+  }
+  
+}
